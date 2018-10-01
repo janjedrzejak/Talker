@@ -33,12 +33,17 @@
                     Dostępne kanały
                     </div>
                     <div class="rooms-list" id="scroll-style">
+                      <?php
+                        require_once('chat_roomslist_script.php');
+                      ?>
+                      <!--
                       <a href="#" class="room"><img src="img/avatar.png" class="avatar">Programiści</a>
                       <a href="#" class="room"><img src="img/avatar.png" class="avatar">Kawalarze</a>
                       <a href="#" class="room-active"><img src="img/avatar.png" class="avatar">Aktywne kobiety</a>
                       <a href="#" class="room"><img src="img/avatar.png" class="avatar">Programiści</a>
                       <a href="#" class="room"><img src="img/avatar.png" class="avatar">Kawalarze</a>
                       <a href="#" class="room-active"><img src="img/avatar.png" class="avatar">Aktywne kobiety</a>
+                    -->
                     </div>
                   </div>
                 </div>
@@ -67,7 +72,6 @@
                     <a href="logout_script.php" class="logout-link">wyloguj</a>
                     </div>
                   </div>
-
                   <div class="chat-container" id="scroll-style">
                   <?php
                     //wyswietlanie zawartosci chatu
