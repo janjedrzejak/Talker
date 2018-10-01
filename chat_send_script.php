@@ -10,6 +10,13 @@ session_start();
 	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 	$user_id = $_SESSION['id'];
 
+	if(isset($_SESSION['roomid']))
+	{
+		$roomid = $_SESSION['roomid'];
+	} else { 
+		$roomid = 0;
+	}
+
 	try {
 		//połączenie z bazą
 		$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);
@@ -23,11 +30,11 @@ session_start();
 			}
 			$last_id++;
 			
-		$sql_query = "INSERT INTO `messages` (`message_id`, `message_from_user_id`, `message_date_time`, `message_content`, `message_room_id`) VALUES ('$last_id', '$user_id', '$datetime', '$chat_message', '1');";
+		$sql_query = "INSERT INTO `messages` (`message_id`, `message_from_user_id`, `message_date_time`, `message_content`, `message_room_id`) VALUES ('$last_id', '$user_id', '$datetime', '$chat_message', '$roomid');";
 
 		$statement = $conn->prepare($sql_query); //dodaj do bazy
 		$statement->execute(); //wykonaj dodawanie
-		header("Location:chat.php");
+		header("Location:chat.php?roomid=$roomid");
 
 	} catch(PDOException $e) {
 		echo "problem z połączeniem";

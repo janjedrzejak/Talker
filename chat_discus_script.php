@@ -6,6 +6,13 @@
 	$db_name = "chat";
 
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
+	if(isset($_GET['roomid'])) {
+		$roomid = htmlspecialchars($_GET['roomid']);
+		$_SESSION['roomid'] = $roomid;
+	} else {
+		$roomid = 0;
+		$_SESSION['roomid'] = 0;
+	}
 	if($user_id!='') {
 	//echo $_SESSION["id"];
 	try {
@@ -14,7 +21,7 @@
 		$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);
 		//echo "podłączony do serwera";	
 		//-----------------------------
-		$sql_query = $conn->prepare("SELECT * FROM `messages`"); //wyswietl usera o tych danych
+		$sql_query = $conn->prepare("SELECT * FROM `messages` WHERE `message_room_id` = $roomid"); //wyswietl usera o tych danych
 		$sql_query->execute();
 
 			while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) { //pobierz dane usera z bazy
