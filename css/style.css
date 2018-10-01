@@ -204,6 +204,8 @@ body {
 		.answer_a {
 			float:left;
 			max-width: 80%;
+			clear: both;
+			display: block !important;
 		}
 		.answer_a_text {
 			margin-top: 10px;
@@ -213,7 +215,7 @@ body {
 			padding: 20px;
 			font-size: 14px;
 			float:right;
-			max-width: 82%;
+			max-width: 80%;
 		}
 		.answer_a_avatar {
 			float: left;
@@ -221,6 +223,7 @@ body {
 			margin-top: 15px;
 		}
 		.answer_b {
+			display: block;
 			float: right;
 			max-width: 80%;
 		}
@@ -240,7 +243,7 @@ body {
 			float: left;
 			max-width: 82%;
 		}
-		
+
 
 
 

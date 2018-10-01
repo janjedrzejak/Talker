@@ -54,7 +54,7 @@
 						echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
-         							<span style="font-weight: bold;">'. $user_name . '</span><br>' . $message_content .'
+         							<span class="bold">'. $user_name . '</span><br>' . $message_content .'
                         			</div>
                         			<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
 								</div>
