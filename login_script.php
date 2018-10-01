@@ -29,12 +29,11 @@
 				$_SESSION["zalogowany"]=1;
 				$_SESSION["id"]=$user_id;
 				//echo $_SESSION["zalogowany"];
-				header('Location:chat.php?roomid=1');
+				header('Location:chat.php?roomid=0');
 			} 
 			// echo $user_id . ' ' . $user_type_id . ' ' . $user_activate . ' ' . $user_email . ' ' . $user_data_create; //test
 
 	} catch(PDOException $e) {
 		echo "problem z połączeniem";
-
 	}
 ?>

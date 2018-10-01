@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 	$db_server_name = "localhost";
 	$db_username = "root";
 	$db_password = "root";
@@ -71,7 +71,7 @@
 
 	}
 	} else {
-		header('Location:index.php');
+		//header('Location:index.php');
 	}
 	
 ?>

@@ -54,13 +54,26 @@
                     Osoby w pokoju
                   </div> 
                   <div class="people-list" id="scroll-style">
+
+                  <!--
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
+                  -->
                   </div>
+                  <!-- wczytuj nowe osoby co 3 sekundy -->
+                  <!--
+                  <script type="text/javascript">
+                          $(document).ready(function(){
+                            setInterval(function(){
+                              $('#people-list').load('chat_peoplelist_script.php')
+                            }, 3000);
+                          });
+                    </script>
+                  -->
                 </div> 
                 </div>    
           </div>
@@ -75,7 +88,7 @@
                   <div class="chat-container" id="scroll-style">
                   <?php
                     //wyswietlanie zawartosci chatu
-                    require_once('chat_discus_script.php');
+                    //require_once('chat_discus_script.php');
                   ?>
                   <script type="text/javascript">
                     var objDiv = $(".chat-container");
@@ -83,6 +96,13 @@
                       objDiv.animate({scrollTop: h}, 0);
                   </script>
                   </div>   
+                  <script type="text/javascript">
+                          $(document).ready(function(){
+                            setInterval(function(){
+                              $('.chat-container').load('chat_discus_script.php')
+                            }, 100);
+                          });
+                    </script>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <form action="chat_send_script.php" method="POST">
                         <input type="text" placeholder="Wyślij wiadomość" class="chat-message" name="chat_message">
