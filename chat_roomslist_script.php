@@ -1,5 +1,4 @@
 <?php
-
 	$db_server_name = "localhost";
 	$db_username = "root";
 	$db_password = "root";
@@ -15,6 +14,7 @@
 		$roomid = 0;
 		$_SESSION['roomid'] = 0;
 	}
+	//echo $_SESSION['roomid'];
 	try {
 		//połączenie z bazą
 		$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);
@@ -42,6 +42,9 @@
 				'</a>';
 				}
 			}
+
+		$sql_query = $conn->prepare("UPDATE `user_logs` SET `log_room_id` = '$roomid' WHERE `user_logs`.`log_user_id` = $user_id;"); 
+		$sql_query->execute();
 
 	} catch(PDOException $e) {
 		echo "problem z połączeniem";

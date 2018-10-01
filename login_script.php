@@ -29,6 +29,20 @@
 				$_SESSION["zalogowany"]=1;
 				$_SESSION["id"]=$user_id;
 				//echo $_SESSION["zalogowany"];
+				$sql_query = $conn->prepare("SELECT `log_id` FROM `user_logs` ORDER BY `log_id` DESC LIMIT 1;"); 
+				$sql_query->execute();
+
+				while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) {
+					$last_id = $result['log_id']; //pobierz ostatnie id
+				}
+				
+				$last_id++;
+
+				$sql_query = "INSERT INTO `user_logs` (`log_id`, `log_user_id`, `log_room_id`, `log_datetime`) VALUES ('" . $last_id . "', '" . $user_id . "', '0', '" . $datetime . "');"; //dodaj log usera do bazy
+
+				$statement = $conn->prepare($sql_query); //dodaj do bazy
+				$statement->execute(); //wykonaj dodawanie
+
 				header('Location:chat.php?roomid=0');
 			} 
 			// echo $user_id . ' ' . $user_type_id . ' ' . $user_activate . ' ' . $user_email . ' ' . $user_data_create; //test

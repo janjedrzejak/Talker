@@ -6,13 +6,15 @@ session_start();
 	$db_name = "chat";
 
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
-	if(isset($_GET['roomid'])) {
+	/*if(isset($_GET['roomid'])) {
 		$roomid = htmlspecialchars($_GET['roomid']);
 		$_SESSION['roomid'] = $roomid;
 	} else {
 		$roomid = 0;
 		$_SESSION['roomid'] = 0;
 	}
+	*/
+	$roomid = $_SESSION['roomid'];
 	if($user_id!='') {
 	//echo $_SESSION["id"];
 	try {
@@ -54,7 +56,7 @@ session_start();
 						echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
-         							<span style="font-weight: bold;">'. $user_name . '</span><br>' . $message_content .'
+         							<span style="font-weight:bold;">'. $user_name . '</span><br>' . $message_content .'
                         			</div>
                         			<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
 								</div>
@@ -71,7 +73,7 @@ session_start();
 
 	}
 	} else {
-		//header('Location:index.php');
+		header('Location:index.php');
 	}
 	
 ?>

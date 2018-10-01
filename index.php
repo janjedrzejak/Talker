@@ -42,8 +42,10 @@
      					{
           					$zalogowany = $_SESSION['zalogowany'];
           					if($zalogowany==1) {
-            				echo "zalogowany";
+            				/*echo "zalogowany";
             				echo "<a href=logout_script.php>wyloguj</a>";
+            				*/
+            				header('Location:chat.php');
           				} 
       					}  
     				?>

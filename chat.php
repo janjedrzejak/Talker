@@ -54,26 +54,18 @@
                     Osoby w pokoju
                   </div> 
                   <div class="people-list" id="scroll-style">
-
                   <!--
                     <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Locha</a>
                   -->
                   </div>
                   <!-- wczytuj nowe osoby co 3 sekundy -->
-                  <!--
                   <script type="text/javascript">
                           $(document).ready(function(){
                             setInterval(function(){
-                              $('#people-list').load('chat_peoplelist_script.php')
-                            }, 3000);
+                              $('.people-list').load('chat_peoplelist_script.php')
+                            }, 500);
                           });
                     </script>
-                  -->
                 </div> 
                 </div>    
           </div>
