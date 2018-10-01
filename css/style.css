@@ -223,9 +223,10 @@ body {
 			margin-top: 15px;
 		}
 		.answer_b {
-			display: block;
 			float: right;
 			max-width: 80%;
+			clear: both;
+			display: block !important;
 		}
 		.answer_b_avatar {
 			float:right;
