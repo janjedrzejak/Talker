@@ -7,12 +7,13 @@
 
 	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 	$user_id = $_SESSION['id'];
-	if(isset($_SESSION['roomid']))
-	{
-		$roomid = $_SESSION['roomid'];
-		echo $roomid;
-	} else { 
+
+	if(isset($_GET['roomid'])) {
+		$roomid = htmlspecialchars($_GET['roomid']);
+		$_SESSION['roomid'] = $roomid;
+	} else {
 		$roomid = 0;
+		$_SESSION['roomid'] = 0;
 	}
 	try {
 		//połączenie z bazą

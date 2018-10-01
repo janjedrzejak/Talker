@@ -35,8 +35,9 @@
 					
 					$sql_query_avatar = $conn->prepare("SELECT * FROM `users` WHERE `user_id` = $message_from_user_id"); //pobierz avatar
 					$sql_query_avatar->execute();
-					while($result_user_avatar = $sql_query_avatar->fetch(PDO::FETCH_ASSOC)) {
-						$user_avatar = $result_user_avatar['user_avatar'];
+					while($result_user = $sql_query_avatar->fetch(PDO::FETCH_ASSOC)) {
+						$user_avatar = $result_user['user_avatar'];
+						$user_name = $result_user['user_name'];
 					}
 
 					if($user_id == $message_from_user_id) {
@@ -44,7 +45,7 @@
 								<div class="answer_a">
 									<img src="' . $user_avatar . '" class="avatar answer_a_avatar">
 									<div class="answer_a_text">
-         							'. $message_id .  $message_from_user_id . $message_content .'
+         							<span style="font-weight: bold;">'. $user_name . '</span><br>' . $message_content .'
                         			</div>
 								</div>
 							';
@@ -53,7 +54,7 @@
 						echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
-         							'. $message_id . $message_from_user_id . $message_content .'
+         							<span style="font-weight: bold;">'. $user_name . '</span><br>' . $message_content .'
                         			</div>
                         			<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
 								</div>
