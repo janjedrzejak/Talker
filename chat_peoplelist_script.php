@@ -8,7 +8,7 @@ session_start();
 	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 	$user_id = $_SESSION['id'];
 	$roomid = $_SESSION['roomid'];
-	
+
 	try {
 		//połączenie z bazą
 		$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);

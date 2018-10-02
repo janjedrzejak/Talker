@@ -1,5 +1,8 @@
 <?php
 	session_start();
+
+  $user_id = $_SESSION["id"];
+  if($user_id=='') { header('Location:error_page.php?c=401'); }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,16 +81,9 @@
                     </div>
                   </div>
                   <div class="chat-container" id="scroll-style">
-                  <?php
-                    //wyswietlanie zawartosci chatu
-                    //require_once('chat_discus_script.php');
-                  ?>
-                  <script type="text/javascript">
-                    var objDiv = $(".chat-container");
-                    var h = objDiv.get(0).scrollHeight;
-                      objDiv.animate({scrollTop: h}, 0);
-                  </script>
-                  </div>   
+                  
+                  </div> 
+
                   <script type="text/javascript">
                           $(document).ready(function(){
                             setInterval(function(){
@@ -95,6 +91,11 @@
                             }, 100);
                           });
                     </script>
+                    <script type="text/javascript">
+                    var objDiv = $(".chat-container");
+                    var h = objDiv.get(0).scrollHeight;
+                      objDiv.animate({scrollTop: h}, 0);
+                    </script>  
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <form action="chat_send_script.php" method="POST">
                         <input type="text" placeholder="Wyślij wiadomość" class="chat-message" name="chat_message">
