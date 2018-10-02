@@ -119,18 +119,18 @@ body {
 				margin-top: 15px;
 			}
 				#scroll-style::-webkit-scrollbar-track {
-					border-radius: 25px;
-					background-color: #dcdcdc;
+					border-radius: 25px !important;
+					background-color: #dcdcdc !important;
 				}
 			
 				#scroll-style::-webkit-scrollbar {
-					width: 10px;
-					border-radius: 25px;
-					background-color: #9076f7;
+					width: 10px !important;
+					border-radius: 25px !important;
+					background-color: #9076f7 !important;
 				}
 				#scroll-style::-webkit-scrollbar-thumb {
-					border-radius: 25px;
-					background-color: #9076f7;
+					border-radius: 25px !important;
+					background-color: #9076f7 !important;
 				}
 		.discus {
 			

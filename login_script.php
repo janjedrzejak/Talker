@@ -20,6 +20,7 @@
 
 			while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) { //pobierz dane usera z bazy
 				$user_id = $result['user_id']; 
+				$user_name = $result['user_name'];
 				$user_type_id = $result['user_type_id'];
 				$user_activate = $result['user_activate'];
 				$user_email = $result['user_email'];
@@ -28,6 +29,7 @@
 			if($user_id=='') { header('Location:index.php'); } else { //jak nie ma usera to wracaj na strone logowania
 				$_SESSION["zalogowany"]=1;
 				$_SESSION["id"]=$user_id;
+				$_SESSION["user_name"]=$user_name;
 				//echo $_SESSION["zalogowany"];
 				$sql_query = $conn->prepare("SELECT `log_id` FROM `user_logs` ORDER BY `log_id` DESC LIMIT 1;"); 
 				$sql_query->execute();

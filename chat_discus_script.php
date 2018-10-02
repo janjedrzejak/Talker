@@ -6,15 +6,15 @@ session_start();
 	$db_name = "chat";
 
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
-	/*if(isset($_GET['roomid'])) {
-		$roomid = htmlspecialchars($_GET['roomid']);
-		$_SESSION['roomid'] = $roomid;
-	} else {
-		$roomid = 0;
-		$_SESSION['roomid'] = 0;
-	}
-	*/
 	$roomid = $_SESSION['roomid'];
+
+	function private_message($m) { //czy wiadomośc jest prywatna? Jeśli jest to podaj nick do kogo
+		if($m[0] == '@') {
+			$user_name_from_private = htmlspecialchars(substr($m, 1, strpos($m, " ")));
+			return $user_name_from_private;
+		}
+	}
+
 	if($user_id!='') {
 	//echo $_SESSION["id"];
 	try {
@@ -33,14 +33,17 @@ session_start();
 				$message_content = $result['message_content'];
 				$message_room_id = $result['message_room_id'];
 				//warunki wyświewtlania po stronie lewej i prawej
-				
-					
+					$private_message_send_to_nick = trim(private_message($message_content)); //jeśli jest prywatna to przechowuj nick
+					$user_name_my = $_SESSION["user_name"];		
 					$sql_query_avatar = $conn->prepare("SELECT * FROM `users` WHERE `user_id` = $message_from_user_id"); //pobierz avatar
 					$sql_query_avatar->execute();
 					while($result_user = $sql_query_avatar->fetch(PDO::FETCH_ASSOC)) {
 						$user_avatar = $result_user['user_avatar'];
 						$user_name = $result_user['user_name'];
 					}
+					//if(trim($private_message_send_to_nick) == $user_name_my) {	
+					//	continue;
+					//	}
 
 					if($user_id == $message_from_user_id) {
 						echo '
@@ -53,6 +56,9 @@ session_start();
 							';
 							
 					} else {
+						if($user_name_my == $private_message_send_to_nick) {
+							continue;
+						}
 						echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
@@ -60,11 +66,11 @@ session_start();
                         			</div>
                         			<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
 								</div>
-							';	
+							';
+						}
+						
 					}
 
-				
-			}
 
 			// echo $user_id . ' ' . $user_type_id . ' ' . $user_activate . ' ' . $user_email . ' ' . $user_data_create; //test
 
