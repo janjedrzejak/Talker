@@ -8,11 +8,19 @@ session_start();
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
 	$roomid = $_SESSION['roomid'];
 
+	function private_message_is_to_me($m) {
+		$user_name_from_private = htmlspecialchars(trim(substr($m, 1, strpos($m, " "))));
+		if($user_name_from_private == $_SESSION['user_name']) {
+			return true;
+		} else { return false; }
+	}
+
 	function private_message($m) { //czy wiadomośc jest prywatna? Jeśli jest to podaj nick do kogo
 		if($m[0] == '@') {
-			$user_name_from_private = htmlspecialchars(substr($m, 1, strpos($m, " ")));
-			return $user_name_from_private;
-		}
+			return true;
+			//$user_name_from_private = htmlspecialchars(substr($m, 1, strpos($m, " ")));
+			//return $user_name_from_private;
+		} else { return false; }
 	}
 
 	if($user_id!='') {
@@ -41,9 +49,6 @@ session_start();
 						$user_avatar = $result_user['user_avatar'];
 						$user_name = $result_user['user_name'];
 					}
-					//if(trim($private_message_send_to_nick) == $user_name_my) {	
-					//	continue;
-					//	}
 
 					if($user_id == $message_from_user_id) {
 						echo '
@@ -56,10 +61,19 @@ session_start();
 							';
 							
 					} else {
-						if($user_name_my == $private_message_send_to_nick) {
-							continue;
-						}
-						echo '
+						if(private_message($message_content) == true) {
+							if(private_message_is_to_me($message_content)) {
+								echo '
+									<div class="answer_b">
+										<div class="answer_b_text">
+         								<span style="font-weight:bold;">wiadomość prywatna od '. $user_name . '</span><br>' . $message_content .'
+                        				</div>
+                        				<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
+									</div>
+								';
+							}
+						} else {
+							echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
          							<span style="font-weight:bold;">'. $user_name . '</span><br>' . $message_content .'
@@ -68,6 +82,7 @@ session_start();
 								</div>
 							';
 						}
+					}
 						
 					}
 
