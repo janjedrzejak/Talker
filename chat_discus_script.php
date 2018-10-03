@@ -7,9 +7,17 @@ session_start();
 
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
 	$roomid = $_SESSION['roomid'];
+
 	if(isset($_SESSION['privuserid'])) { $privuserid = $_SESSION['privuserid']; }
 	
 /*=========================================================================================*/
+	function private_message_is_from_me($m, $u) {
+		$user_name_from_private = htmlspecialchars(trim(substr($m, 1, strpos($m, " ")))); //wczytaj nick od @ do spacji
+		if($user_name_from_private == $u) { //jak nick jest taki jak argument to prawda
+			return true;
+		} else { return false; }
+	}
+
 	function private_message_is_to_me($m) {
 		$user_name_from_private = htmlspecialchars(trim(substr($m, 1, strpos($m, " "))));
 		if($user_name_from_private == $_SESSION['user_name']) {
@@ -38,7 +46,7 @@ session_start();
 		//------------------------------------------------------------------------------------------
 		//--------->ta część dotyczy tylko wyświetlania przebiegu dyskusji prywatnej<---------------
 		//------------------------------------------------------------------------------------------
-		$sql_query = $conn->prepare("SELECT * FROM `messages` WHERE `message_from_user_id` = $privuserid"); //wczytaj wiadomości od użytkownika, którego wybraliśmy WSZYSTKIE
+		$sql_query = $conn->prepare("SELECT * FROM `messages`");
 		$sql_query->execute();
 
 			while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) {
@@ -57,7 +65,28 @@ session_start();
 						$user_name = $result_user['user_name'];
 					}
 
-					if(private_message_is_to_me($message_content) == true) { //spr. wszystkie i czy do mnie, jak tak to wyświetlaj ją
+					$sql_query_nick= $conn->prepare("SELECT * FROM `users` WHERE `user_id` = $privuserid"); //wczytaj jego nick
+					$sql_query_nick->execute();
+					while($result_user = $sql_query_nick->fetch(PDO::FETCH_ASSOC)) {
+						$user_nick = $result_user['user_name']; //nick usera z którym konweracja
+					}
+
+
+					//nasze odpowiedzi prywatne do konkretnego usera
+					if(private_message_is_from_me($message_content, $user_nick) == true &&
+						$message_from_user_id == $user_id) {
+						echo '
+								<div class="answer_a">
+									<img src="' . $user_avatar . '" class="avatar answer_a_avatar">
+									<div class="answer_a_text">
+         							<span style="font-weight: bold;">'. $user_name . '</span><br>' . $message_content .'
+                        			</div>
+								</div>
+							';
+					}
+
+					//odpowiedzi tylko do nas od konkretnego usera
+					if(private_message_is_to_me($message_content) == true && $message_from_user_id == $privuserid) { //spr. wszystkie i czy do mnie, jak tak to wyświetlaj ją
 						echo '
 								<div class="answer_b">
 									<div class="answer_b_text">
@@ -129,7 +158,6 @@ session_start();
 		//------------------------------------------------------------------------------------------
 		//------------------------------------------------------------------------------------------
 		}	
-
 	} catch(PDOException $e) {
 		echo "problem z połączeniem";
 
