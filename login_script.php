@@ -40,7 +40,9 @@
 				
 				$last_id++;
 
-				$sql_query = "INSERT INTO `user_logs` (`log_id`, `log_user_id`, `log_room_id`, `log_datetime`) VALUES ('" . $last_id . "', '" . $user_id . "', '0', '" . $datetime . "');"; //dodaj log usera do bazy
+				$sql_query = "INSERT INTO `user_logs` (`log_id`, `log_user_id`, `log_room_id`, `log_datetime`, `log_last_active`) VALUES ('" . $last_id . "', '" . $user_id . "', '0', '" . $datetime . "', '" . $datetime . "');"; //dodaj log usera do bazy
+
+
 
 				$statement = $conn->prepare($sql_query); //dodaj do bazy
 				$statement->execute(); //wykonaj dodawanie

@@ -250,5 +250,10 @@ body {
 			font-size: 20px;
 		}
 
-
+		.loader-ico {
+			margin-top: 25%;
+			margin-left: 47%;
+			width: 50px;
+			height: 50px;
+		}
 

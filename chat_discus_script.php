@@ -5,6 +5,7 @@ session_start();
 	$db_password = "root";
 	$db_name = "chat";
 
+
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
 	$roomid = $_SESSION['roomid'];
 

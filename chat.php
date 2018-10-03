@@ -66,7 +66,7 @@
                           $(document).ready(function(){
                             setInterval(function(){
                               $('.people-list').load('chat_peoplelist_script.php')
-                            }, 500);
+                            }, 1000);
                           });
                     </script>
                 </div> 
@@ -74,27 +74,29 @@
           </div>
           <div class="discus col-xs-12 col-sm-12 col-md-8 col-lg-9">
                 <div class="row">
-                  <div class="caption">
-                  Dyskusja
+                  <div class="caption"> 
+                  <?php
+                    require_once("libary/chat_read_user.php");
+                  ?>
                     <div class="logout">
                     <a href="logout_script.php" class="logout-link">wyloguj</a>
                     </div>
                   </div>
                   <div class="chat-container" id="scroll-style">
-                  
+                      <img src="img/loader.gif" class="loader-ico">
                   </div> 
 
                   <script type="text/javascript">
                           $(document).ready(function(){
                             setInterval(function(){
                               $('.chat-container').load('chat_discus_script.php')
-                            }, 100);
+                            }, 1000);
                           });
                     </script>
                     <script type="text/javascript">
                     var objDiv = $(".chat-container");
                     var h = objDiv.get(0).scrollHeight;
-                      objDiv.animate({scrollTop: h}, 0);
+                      objDiv.animate({scrollTop: h}, );
                     </script>  
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <form action="chat_send_script.php" method="POST">
