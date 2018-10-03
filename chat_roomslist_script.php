@@ -10,9 +10,15 @@
 	if(isset($_GET['roomid'])) {
 		$roomid = htmlspecialchars($_GET['roomid']);
 		$_SESSION['roomid'] = $roomid;
+		unset ($_SESSION['privuserid']);
 	} else {
 		$roomid = 0;
 		$_SESSION['roomid'] = 0;
+	}
+
+	if(isset($_GET['privuserid'])) {
+			$privuserid = htmlspecialchars($_GET['privuserid']);
+			$_SESSION['privuserid'] = $privuserid;
 	}
 	//echo $_SESSION['roomid'];
 	try {

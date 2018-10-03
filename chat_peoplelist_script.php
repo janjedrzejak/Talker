@@ -30,7 +30,7 @@ session_start();
 
 				if($user_id != $user_id_from_db) {
 					echo '
-						<a href="#" class="room">
+						<a href="chat.php?privuserid=' . $user_id_from_db . '" class="room">
 							<img src="' . $user_avatar . '" class="avatar">
 							' . $user_name . 
 						'</a>';
