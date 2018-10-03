@@ -47,7 +47,7 @@ session_start();
 		//------------------------------------------------------------------------------------------
 		//--------->ta część dotyczy tylko wyświetlania przebiegu dyskusji prywatnej<---------------
 		//------------------------------------------------------------------------------------------
-		$sql_query = $conn->prepare("SELECT * FROM `messages`");
+		$sql_query = $conn->prepare("SELECT * FROM `messages` ORDER BY `message_id` DESC");
 		$sql_query->execute();
 
 			while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) {
@@ -106,7 +106,7 @@ session_start();
 		//------------------------------------------------------------------------------------------
 		//---->ta część dotyczy tylko wyświetlania wiadomości w obrębie pokoju bez prywatnych<------
 		//------------------------------------------------------------------------------------------
-		$sql_query = $conn->prepare("SELECT * FROM `messages` WHERE `message_room_id` = $roomid"); //wyswietl usera o tych danych
+		$sql_query = $conn->prepare("SELECT * FROM `messages` WHERE `message_room_id` = $roomid ORDER BY `message_id` DESC"); //wyswietl usera o tych danych
 		$sql_query->execute();
 
 			while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) { //pobierz dane usera z bazy

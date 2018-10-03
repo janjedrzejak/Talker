@@ -39,14 +39,6 @@
                       <?php
                         require_once('chat_roomslist_script.php');
                       ?>
-                      <!--
-                      <a href="#" class="room"><img src="img/avatar.png" class="avatar">Programiści</a>
-                      <a href="#" class="room"><img src="img/avatar.png" class="avatar">Kawalarze</a>
-                      <a href="#" class="room-active"><img src="img/avatar.png" class="avatar">Aktywne kobiety</a>
-                      <a href="#" class="room"><img src="img/avatar.png" class="avatar">Programiści</a>
-                      <a href="#" class="room"><img src="img/avatar.png" class="avatar">Kawalarze</a>
-                      <a href="#" class="room-active"><img src="img/avatar.png" class="avatar">Aktywne kobiety</a>
-                    -->
                     </div>
                   </div>
                 </div>
@@ -57,11 +49,7 @@
                     Osoby w pokoju
                   </div> 
                   <div class="people-list" id="scroll-style">
-                  <!--
-                    <a href="#" class="room"><img src="img/avatar.png" class="avatar">Gnój</a>
-                  -->
                   </div>
-                  <!-- wczytuj nowe osoby co 3 sekundy -->
                   <script type="text/javascript">
                           $(document).ready(function(){
                             setInterval(function(){
