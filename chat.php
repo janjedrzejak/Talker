@@ -75,28 +75,27 @@
                     <a href="logout_script.php" class="logout-link">wyloguj</a>
                     </div>
                   </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <form action="chat_send_script.php" method="POST">
+                        <input type="text" placeholder="Wyślij wiadomość" class="chat-message" name="chat_message">
+                        <input type="submit" style="display:none"/>
+                      </form>
+                  </div>
                   <div class="chat-container" id="scroll-style">
-                      <img src="img/loader.gif" class="loader-ico">
+                     <img src="img/loader.gif" class="loader-ico">
                   </div> 
 
-                  <script type="text/javascript">
+                   <script type="text/javascript">
                           $(document).ready(function(){
                             setInterval(function(){
                               $('.chat-container').load('chat_discus_script.php')
                             }, 1000);
                           });
                     </script>
-                    <script type="text/javascript">
-                    var objDiv = $(".chat-container");
-                    var h = objDiv.get(0).scrollHeight;
-                      objDiv.animate({scrollTop: h}, );
-                    </script>  
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <form action="chat_send_script.php" method="POST">
-                        <input type="text" placeholder="Wyślij wiadomość" class="chat-message" name="chat_message">
-                        <input type="submit" style="display:none"/>
-                      </form>
-                  </div>
+                
+                 
+                    
+                    
                 </div>
           </div>
         </div>

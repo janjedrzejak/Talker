@@ -1,27 +1,35 @@
-<?php
-	$s = "@abcd efg";
-	echo substr($s, 1, strpos($s, " "));
-?>
+<script>
+var i = 0;
+function startRefresh() {
+  $.get('https://api.github.com/users', function(data) {
+    $('#content_div_id').append(i + ': ' + data[0].id + '<br>');
+    i += 1;
+    var myDiv = $('div.portlet-body.chat-widget');
+    myDiv.scrollTop(myDiv[0].scrollHeight - myDiv[0].clientHeight);
+    setTimeout(startRefresh, 300);
+  });
+}
+$(function () {
+  startRefresh();
+});
+</script>
+<style>
+#content_div_id {
+  width: 50%;
+  height: 100px;
+  overflow-y: scroll;
+}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="text-center text-muted small">January 1, 2014 at 12:23 PM</p>
+        </div>
+    </div>
 
-if($user_name_my == $private_message_send_to_nick) {
-							continue;
-						}
+    <div id="content_div_id" style="overflow-y: hidden; width: auto; height: auto;">
 
-
-
-						echo '
-									<div class="answer_b">
-										<div class="answer_b_text">
-         								<span style="font-weight:bold;">wiadomość prywatna od '. $user_name . '</span><br>' . $message_content .'
-                        				</div>
-                        				<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
-									</div>
-								';
-
-
-								if(private_message($message_content) == true) {
-							if(private_message_is_to_me($message_content)) {
-								
-							} //no jak nie do mnie to nie wyświetlaj
-						} else {
+    </div>
+</div>

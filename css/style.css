@@ -132,8 +132,7 @@ body {
 					border-radius: 25px !important;
 					background-color: #9076f7 !important;
 				}
-		.discus {
-			
+		.discus {		
 			height:auto;
 		}
 		.caption {
@@ -190,7 +189,7 @@ body {
 		}
 		.chat-container {
 			overflow-y: scroll;
-			height: 430px;
+			height: 450px;
 			width: 98%;
 			margin-top: 15px;
 		}
