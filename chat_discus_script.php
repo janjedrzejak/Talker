@@ -8,6 +8,7 @@ session_start();
 
 	$user_id = $_SESSION["id"]; //dowiedz sie ktory user jest zalogowany na to konto
 	$roomid = $_SESSION['roomid'];
+	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 
 	if(isset($_SESSION['privuserid'])) { $privuserid = $_SESSION['privuserid']; }
 	
@@ -43,6 +44,12 @@ session_start();
 		error_reporting(0);
 		$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);
 		//echo "podłączony do serwera";	
+		//------------------------------------------------------------------------------------------
+		//--------->Aktualizuj status użytkownika<--------------------------------------------------
+		$sql_query = "UPDATE `user_logs` SET `log_last_active` = '" . $datetime . "' WHERE `user_logs`.`log_user_id` = '" . $user_id . "'";
+		$statement = $conn->prepare($sql_query); 
+		$statement->execute(); 
+		//------------------------------------------------------------------------------------------
 		if(isset($_SESSION['privuserid'])) {
 		//------------------------------------------------------------------------------------------
 		//--------->ta część dotyczy tylko wyświetlania przebiegu dyskusji prywatnej<---------------

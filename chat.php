@@ -20,9 +20,6 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Chat</title>
- 
- 
-
   </head>
   <body class="chat-bg">
         <img src="img/pic.png" alt="pic" class="pic" />
@@ -54,6 +51,14 @@
                           $(document).ready(function(){
                             setInterval(function(){
                               $('.people-list').load('chat_peoplelist_script.php')
+                            }, 1000);
+                          });
+                    </script>
+                    <div class="chat_check_active_users"></div>
+                    <script type="text/javascript">
+                          $(document).ready(function(){
+                            setInterval(function(){
+                              $('.chat_check_active_users').load('libary/chat_check_active_users.php')
                             }, 1000);
                           });
                     </script>
