@@ -17,7 +17,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Chat</title>
   </head>
@@ -65,6 +67,7 @@
                 </div> 
                 </div>    
           </div>
+
           <div class="discus col-xs-12 col-sm-12 col-md-8 col-lg-9">
                 <div class="row">
                   <div class="caption"> 
@@ -72,8 +75,20 @@
                     require_once("libary/chat_read_user.php");
                   ?>
                     <div class="logout">
-                    <a href="logout_script.php" class="logout-link">wyloguj</a>
-                    </div>
+                    <!-- <a href="logout_script.php" class="logout-link">wyloguj</a> -->
+                    <div class="dropdown show">
+                      <a class="dropdown-toggle logout-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       ustawienia</a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <a class="dropdown-item" href="dashboard.php">panel zarządzania</a>
+                           <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="logout_script.php">wyloguj</a>
+                        </div>
+                      </div>
+                    <!-- <a href="logout_script.php" class="logout-link">ustawienia</a> -->
+                   
+                  </div>
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                       <form action="chat_send_script.php" method="POST">
@@ -91,11 +106,7 @@
                               $('.chat-container').load('chat_discus_script.php')
                             }, 1000);
                           });
-                    </script>
-                
-                 
-                    
-                    
+                    </script>  
                 </div>
           </div>
         </div>

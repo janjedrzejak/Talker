@@ -79,6 +79,26 @@ body {
 			font-weight: bold;
 			font-size: 18px;
 		}
+		.inputfile {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+		}
+		.inputfile_label {
+			background-color: #48d4dd;
+			margin-top: 17px;
+			width: 70%;
+			padding: 10px;
+			border-radius: 50px;
+			text-align: center;
+			border-style: solid;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+		}
 		.forgot-link {
 			margin-top: 34px;
 		}
@@ -99,12 +119,19 @@ body {
 			height: 590px;
 			border-right: 1px solid #dcdcdc;
 		}
+		.menu_dashboard {
+			height: 590px;
+			background-color: #4e4e4e;
+			border-right: 1px solid #dcdcdc;
+		}
 			.rooms {
 				margin-bottom: 20px;	
 				
 			}
+
 			.rooms-list {
 				overflow-y: scroll;
+				overflow-x: hidden;
 				height: 165px;
 				width: 95%;
 				margin-top: 15px;
@@ -114,6 +141,7 @@ body {
 			}
 			.people-list {
 				overflow-y: scroll;
+				overflow-x: hidden;
 				height: 220px;
 				width: 95%;
 				margin-top: 15px;
@@ -141,6 +169,17 @@ body {
 			width: 100%;
 			border-bottom: 1px solid #dcdcdc;
 		}
+		.caption_dashboard {
+			font-weight: bold;
+			padding: 15px;
+			width: 100%;
+			color: #fff;
+			border-bottom: 1px solid #404040;
+		}
+		.option {
+			color: #fff;
+
+		}
 		.logout {
 			font-size: 14px;
 			display: inline;
@@ -155,10 +194,15 @@ body {
 			text-decoration: none;
 		}
 		.avatar {
-			width: 50;
+			width: 50px;
 			height: 50px;
 			border-radius: 50px;
 			margin-right: 15px;
+		}
+		.avatar_preferences {
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
 		}
 		.room {
 			padding: 0px 15px 0px 15px;
@@ -189,7 +233,8 @@ body {
 		}
 		.chat-container {
 			overflow-y: scroll;
-			height: 450px;
+			overflow-x: hidden;
+			height: 420px;
 			width: 98%;
 			margin-top: 15px;
 		}
@@ -255,4 +300,36 @@ body {
 			width: 50px;
 			height: 50px;
 		}
+		.option {
+			width:25px;
+			height:25px;
+			display: inline;
+		}
+			#opt {
+				color: #fff;
+				display: block;
+				margin-top:20px;
+			}
+			#opt:hover {
+				text-decoration: none;
+				font-weight: bold;
+			}
+			#opt-active {
+				color: #fff;
+				display: block;
+				margin-top:20px;
+				font-weight: bold;
+			}
+			#opt-active:hover {
+				text-decoration: none;
+				font-weight: bold;
+			}
 
+		.preferences {
+			margin: 0 auto;
+			width: 350px;
+			text-align: center;
+		}
+		.descryption {
+			font-size: 12px;
+		}

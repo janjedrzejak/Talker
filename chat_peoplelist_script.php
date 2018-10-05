@@ -8,6 +8,8 @@ session_start();
 	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 	$user_id = $_SESSION['id'];
 	$roomid = $_SESSION['roomid'];
+	
+error_reporting(0);
 
 	try {
 		if($user_id!='') {

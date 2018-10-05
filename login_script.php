@@ -30,6 +30,7 @@
 				$_SESSION["zalogowany"]=1;
 				$_SESSION["id"]=$user_id;
 				$_SESSION["user_name"]=$user_name;
+				$_SESSION["user_type_id"]=$user_type_id;
 				//echo $_SESSION["zalogowany"];
 				$sql_query = $conn->prepare("SELECT `log_id` FROM `user_logs` ORDER BY `log_id` DESC LIMIT 1;"); 
 				$sql_query->execute();
