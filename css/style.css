@@ -327,9 +327,10 @@ body {
 
 		.preferences {
 			margin: 0 auto;
-			width: 350px;
-			text-align: center;
+			width: 400px;
+			
 		}
 		.descryption {
 			font-size: 12px;
 		}
+		

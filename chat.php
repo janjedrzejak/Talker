@@ -81,7 +81,7 @@
                        ustawienia</a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="dashboard.php">panel zarządzania</a>
+                          <a class="dropdown-item" href="dashboard.php?o=0">panel zarządzania</a>
                            <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="logout_script.php">wyloguj</a>
                         </div>

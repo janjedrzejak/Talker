@@ -37,48 +37,122 @@
                   </div>
                   <div class="option">
                     <?php
-                      if(isset($_GET['o'])) { $o = htmlspecialchars($_GET['o']); } else { $o = 0; }
-                      switch($o) {
+                    if(isset($_SESSION['user_type_id'])) { $user_type_id = $_SESSION['user_type_id']; }
+
+                      switch($user_type_id) {
                         case 0:
-                          echo '
-                                <a href="dashboard.php?o=0" id="opt-active">zmień avatar</a>
-                                <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
-                                <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
-                                <a href="dashboard.php?o=3" id="opt">usuń konto</a>
-                          ';
+                                if(isset($_GET['o'])) { $o = htmlspecialchars($_GET['o']); } else { $o = 0; }
+                                switch($o) {
+                                    case 0:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt-active">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt">zarządzaj kanałami</a>
+                                      ';
+                                    break;
+                                    case 1:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt">zarządzaj kanałami</a>
+                                      ';
+                                    break;
+                                    case 2:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt-active">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt">zarządzaj kanałami</a>
+                                      ';
+                                    break;
+                                    case 3:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt-active">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt">zarządzaj kanałami</a>
+                                      ';
+                                    break;
+                                    case 4:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt-active">zarządzaj kanałami</a>
+                                      ';
+                                    break;
+                                    default:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+
+                                            <a href="dashboard.php?o=4" id="opt">zarządzaj kanałami</a>
+                                      ';
+                                  }
                         break;
                         case 1:
-                          echo '
-                                <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
-                                <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
-                                <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
-                                <a href="dashboard.php?o=3" id="opt">usuń konto</a>
-                          ';
-                        break;
-                        case 2:
-                          echo '
-                                <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
-                                <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
-                                <a href="dashboard.php?o=2" id="opt-active">zmień hasło</a>
-                                <a href="dashboard.php?o=3" id="opt">usuń konto</a>
-                          ';
-                        break;
-                        case 3:
-                          echo '
-                                <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
-                                <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
-                                <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
-                                <a href="dashboard.php?o=3" id="opt-active">usuń konto</a>
-                          ';
+                              if(isset($_GET['o'])) { $o = htmlspecialchars($_GET['o']); } else { $o = 0; }
+                                switch($o) {
+                                    case 0:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt-active">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+                                      ';
+                                    break;
+                                    case 1:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+                                      ';
+                                    break;
+                                    case 2:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt-active">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+                                      ';
+                                    break;
+                                    case 3:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt-active">usuń konto</a>
+                                      ';
+                                    break;
+                                    default:
+                                      echo '
+                                            <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
+                                            <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
+                                            <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
+                                            <a href="dashboard.php?o=3" id="opt">usuń konto</a>
+                                      ';
+                                  }
                         break;
                         default:
-                          echo '
-                                <a href="dashboard.php?o=0" id="opt">zmień avatar</a>
-                                <a href="dashboard.php?o=1" id="opt-active">zmień e-mail</a>
-                                <a href="dashboard.php?o=2" id="opt">zmień hasło</a>
-                                <a href="dashboard.php?o=3" id="opt">usuń konto</a>
-                          ';
+                          header('Location:logout_script.php');
                       }
+
+                      
                     ?>
                     </div>
                 </div>
