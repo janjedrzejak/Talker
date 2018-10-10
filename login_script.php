@@ -48,7 +48,7 @@
 				$statement = $conn->prepare($sql_query); //dodaj do bazy
 				$statement->execute(); //wykonaj dodawanie
 
-				header('Location:chat.php?roomid=0');
+				header('Location:chat.php?roomid=1');
 			} 
 			// echo $user_id . ' ' . $user_type_id . ' ' . $user_activate . ' ' . $user_email . ' ' . $user_data_create; //test
 

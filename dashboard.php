@@ -176,7 +176,7 @@
                        ustawienia</a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="chat.php">chat</a>
+                          <a class="dropdown-item" href="chat.php?roomid=1">chat</a>
                            <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="logout_script.php">wyloguj</a>
                         </div>

@@ -205,7 +205,7 @@ body {
 			border-radius: 50px;
 		}
 		.room {
-			padding: 0px 15px 0px 15px;
+			padding: 5px 15px 5px 15px;
 			font-size: 14px;
 			color: #4e4e4e;
 			border-left: 4px solid #fff;	
@@ -218,7 +218,7 @@ body {
 			font-weight: bold;
 		}
 		.room-active {
-			padding: 0px 15px 0px 15px;
+			padding: 5px 15px 5px 15px;
 			font-size: 14px;
 			color: #4e4e4e;
 			border-left: 4px solid #9076f7;

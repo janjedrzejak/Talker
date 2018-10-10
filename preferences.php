@@ -143,7 +143,7 @@ switch($opt) {
                       $room_name = $result['room_name'];
                       $room_avatar = $result['room_avatar'];    
                       echo '
-                          <a href="libary/delete_room.php?r=' . $room_id . '" class="room" style="padding: 14px; text-align: center; color: red;">usuń kanał'
+                          <a href="libary/delete_room.php?r=' . $room_id . '" class="room" style="padding: 19px; text-align: center; color: red;">usuń kanał'
                           . '</a>';
                     } 
               echo '</div>';

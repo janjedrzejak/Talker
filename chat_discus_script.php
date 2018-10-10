@@ -103,6 +103,9 @@ session_start();
                         			<img src="' . $user_avatar . '" class="avatar answer_b_avatar">
 								</div>
 							';
+						//po wyświetleniu uzupełnij baze o to, że przeczytana
+						$sql_query_update_message_status = $conn->prepare("UPDATE `messages` SET `priv_message_is_open` = '1' WHERE `messages`.`message_id` = $message_id;");
+						$sql_query_update_message_status->execute();
 					}
 
 			}
