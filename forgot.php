@@ -28,6 +28,18 @@
 				<img src="img/logo.svg" alt="Logo" width="231" height="56" class="logo">
 				<p class="claim">let's talk!</p>
 					<div class="login-link">
+						<?php
+							if(isSet($_GET['e'])) { $e = htmlspecialchars($_GET['e']); } else $e = 5;
+							switch ($e) {
+								 	case 0:
+								 		echo 'Na podany adres zostaną wysłane instrukcje<br>Może to potrwać trochę czasu.';
+								 		break;
+								 	
+								 	default:
+								 		echo 'Na podany przez ciebie adres e-mail zostanie wysłana informacja o instrukcji odzyskania hasła dostępu.';
+								 		break;
+								 } 
+						?>
 						
 					</div>
 					<form action="libary/forgot_script.php" method="POST" class="login-form">
@@ -46,6 +58,9 @@
           				} 
       					}  
     				?>	
+    				<div class="forgot-link">
+						<a href="index.php" class="link">wróć na stronę główną</a>
+					</div>
 			</div>
 		</div>
   </body>

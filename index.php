@@ -38,6 +38,17 @@
 						<input type="submit" value="Zaloguj się" />
 					</form>
 					<?php
+					if(isSet($_GET['e'])) { 
+						$e = htmlspecialchars($_GET['e']); 
+						switch ($e) {
+							case 0:
+								echo '<span class="descryption">Twoje konto zostało zarejestrowane.<br> Odbierz e-mail i zaloguj się</span>';
+								break;
+								default:
+								
+								break;
+						}
+					}
       					if(isSet($_SESSION['zalogowany']))
      					{
           					$zalogowany = $_SESSION['zalogowany'];

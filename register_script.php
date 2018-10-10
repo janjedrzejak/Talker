@@ -9,7 +9,7 @@
 	$email = htmlspecialchars($_POST['email']);
 	$datetime = date("Y-m-d H:i:s");//format rrrr-mm-dd hh:mm:ss
 	$template = '/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,4}$/';
-		if(preg_match($template, $email) && strlen(htmlspecialchars($_POST['password'])) > 6) {
+		if(preg_match($template, $email) && strlen(htmlspecialchars($_POST['password'])) > 6 && substr_count($name, ' ') == 0) {
 				try {
 				//połączenie z bazą
 					$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password);
@@ -21,7 +21,7 @@
 					while($result = $sql_query->fetch(PDO::FETCH_ASSOC)) {
 							$last_id = $result['user_id']; //pobierz ostatnie id
 					} $last_id++;
-					$sql_query = "INSERT INTO `users` (`user_id`, `user_type_id`, `user_activate`, `user_name`, `user_email`, `user_data_create`, `user_password`) VALUES ('" . $last_id . "', '1', '0', '" . $name . "', '" . $email . "', '" . $datetime . "', '" . $password . "');"; //dodaj nowego usera
+					$sql_query = "INSERT INTO `users` (`user_id`, `user_type_id`, `user_activate`, `user_name`, `user_email`, `user_data_create`, `user_password`, `user_avatar`) VALUES ('" . $last_id . "', '1', '0', '" . $name . "', '" . $email . "', '" . $datetime . "', '" . $password . "', 'img/avatats/default.png');"; //dodaj nowego usera
 
 						$statement = $conn->prepare($sql_query); //dodaj do bazy
 						$statement->execute(); //wykonaj dodawanie
@@ -62,7 +62,7 @@
 						
 						mail($to,$subject,$message,$headers);
 						//=================================================================================
-						header("Location:index.php");
+						header("Location:index.php?e=0");
 				} catch(PDOException $e) {
 					echo "problem z połączeniem";
 				}

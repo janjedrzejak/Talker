@@ -1,6 +1,17 @@
 <?php
-						$email=htmlspecialchars($_POST['email']);
-						$to = "talker.communication@gmail.com";
+//sprawdz czy jest w bazie taki email potem na niego wyslij
+	$db_server_name = "localhost";
+    $db_username = "root";
+    $db_password = "root";
+    $db_name = "chat";
+	$email=htmlspecialchars($_POST['email']);
+
+		try {
+			$conn = new PDO("mysql:host=$db_server_name; dbname=$db_name", $db_username, $db_password); 
+			$sql_query = conn->prepare("SELECT * FROM `users` WHERE `user_email` LIKE '" . $email . "'");
+ 			$sql_query->execute();
+ 				if($sql_query->rowCount()>0) { //znalazl w bazie taki rekord
+ 					$to = "talker.communication@gmail.com";
 						$subject = "$email prosi o nowe hasło";
 						$message = "
 									<html>
@@ -33,6 +44,14 @@
 						
 						mail($to,$subject,$message,$headers);
 						//=================================================================================
-						header("Location:../index.php");
+						header("Location:../forgot.php?e=0");
+ 				} else {
+ 					header("Location:../forgot.php?e=1");
+ 				}
+		} catch(PDOException $e) {
+			header('Location:../index.php');
+		}
+
+						
 
 ?>
