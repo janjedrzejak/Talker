@@ -26,7 +26,7 @@
 				$user_email = $result['user_email'];
 				$user_data_create = $result['user_data_create'];
 			}
-			if($user_id=='') { header('Location:index.php'); } else { //jak nie ma usera to wracaj na strone logowania
+			if($user_id=='') { header('Location:index.php?e=1'); } else { //jak nie ma usera to wracaj na strone logowania
 				$_SESSION["zalogowany"]=1;
 				$_SESSION["id"]=$user_id;
 				$_SESSION["user_name"]=$user_name;

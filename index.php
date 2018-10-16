@@ -44,6 +44,9 @@
 							case 0:
 								echo '<span class="descryption">Twoje konto zostało zarejestrowane.<br> Odbierz e-mail i zaloguj się</span>';
 								break;
+							case 1:
+								echo '<span class="descryption">Podałeś nieprawidłowy login lub hasło</span>';
+								break;
 								default:
 								
 								break;
