@@ -8,3 +8,6 @@ MariaDB
 PHP 7.2.9
 ```
 ### Screenshots
+![Screen](https://github.com/janjedrzejak/talker/blob/Demo/screenshots/1.jpg?raw=true)
+![Screen](https://github.com/janjedrzejak/talker/blob/Demo/screenshots/2.jpg?raw=true)
+![Screen](https://github.com/janjedrzejak/talker/blob/Demo/screenshots/3.jpg?raw=true)
