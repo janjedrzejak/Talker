@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # TALKER
 Talker is a simple real time web chat application. You can write with all users of channel or only one user.
 ### Prerequisites
